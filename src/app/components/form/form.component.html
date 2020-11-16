@@ -1,0 +1,41 @@
+<div style="width: 400px; margin: auto;">
+    <div class="submit-form">
+        <div>
+            <div class="form-group">
+                <label for="text">Texto en mayuscula</label>
+                <input class="form-control" id="text" required [(ngModel)]="form.text" name="text" />
+            </div>
+
+            <div class="form-group">
+                <label for="decimal">Decimales</label>
+                <input type="number" class="form-control" id="decimal" required [(ngModel)]="form.decimal" name="decimal" />
+            </div>
+
+            <div class="form-group">
+                <label for="currency"> Currency </label>
+                <input type="number" class="form-control" id="currency" required [(ngModel)]="form.currency" name="currency" />
+            </div>
+
+
+            <button (click)="transform()" class="btn btn-success">Mostrar</button>
+        </div>
+
+    </div>
+</div>
+
+<div class="col-md-6">
+    <div *ngIf="showData">
+        <h4>Data</h4>
+        <div>
+            <label><strong>Texto en mayúscula:</strong></label> {{ text | uppercase }}
+        </div>
+        <div>
+            <label><strong>Decimales:</strong></label>
+            {{ decimal | number : '.3' }}
+        </div>
+        <div>
+            <label><strong>Currency :</strong></label>
+            {{ currency | currency:'USD':'symbol':'4.2-2'  }}
+        </div>
+    </div>
+</div>
